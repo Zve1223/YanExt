@@ -66,7 +66,7 @@ export function activate(context: vscode.ExtensionContext) {
             const endIndex = match[5];
             const operation = !match[6] ? '++' : ((match[6] === '+' || match[6] === '-') ? (match[6] + match[6]) : match[6]);
 
-            const replacementText = `\n${indent}for (size_t ${variableName} = ${startIndex}; ${variableName} ${logicOperator} ${endIndex}; ${variableName}${operation}) {\n${indent}    \n${indent}}\n`;
+            const replacementText = `\n${indent}for (int ${variableName} = ${startIndex}; ${variableName} ${logicOperator} ${endIndex}; ${variableName} ${operation}) {\n${indent}    \n${indent}}\n`;
 
             const startPos = document.positionAt(match.index);
             const endPos = document.positionAt(match.index + match[0].length);
